@@ -1,0 +1,20 @@
+﻿@model IEnumerable<EntityLayer.Concrete.SubCategory>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAuthenticated.cshtml";
+}
+<div class="container my-5" style="display:flex; justify-content:center; align-items:start; width:25rem;">
+    <table class="table table-bordered">
+
+        <tr><th>Kategoriler</th> </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><a href="/Product/AddProduct/@item.SubCategoryID">@item.NameSubCategory</a></td>
+
+            </tr>
+        }
+    </table>
+</div>
+

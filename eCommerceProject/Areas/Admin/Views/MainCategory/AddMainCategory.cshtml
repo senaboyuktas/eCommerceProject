@@ -1,0 +1,33 @@
+﻿@model EntityLayer.Concrete.MainCategory
+
+@{
+    ViewData["Title"] = "AddMainCategory";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <h3 class="mb-0">Ana Kategori Ekleme Tablosu</h3>
+</div>
+
+<form class="form-group " style="margin-left: 1rem; margin-right: 1rem;" method="post">
+
+    @using (Html.BeginForm("AddMainCategory", "MainCategory", FormMethod.Post))
+    {
+        @Html.Label("Ana Kategori İsmi : ")
+        @Html.TextBoxFor(x => x.NameMainCategory, new { @class = "form-control"})
+        @Html.ValidationMessageFor(x => x.NameMainCategory,"",new{@class="text-danger", @style="font-size:12px;"})
+
+        <br />
+
+        @Html.Label("Ana Kategori Resmi : ")
+        @Html.TextBoxFor(x => x.ImageUrlMainCategory, new { @class = "form-control"})
+        @Html.ValidationMessageFor(x => x.ImageUrlMainCategory,"",new{@class="text-danger", @style="font-size:12px;"})
+
+        <br />
+
+
+
+        <button class="btn btn-info">Yazıyı Kaydet</button>
+    }
+
+</form>

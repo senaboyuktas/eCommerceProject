@@ -1,0 +1,26 @@
+﻿@using EntityLayer.Concrete
+@model List<MainCategory>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAuthenticated.cshtml";
+}
+
+<div class="container my-5" style="display:flex; justify-content:center; align-items:start; width:20rem;">
+    <table class="table table-bordered">
+        <tr>
+            <th colspan="2" class="text-center">Kategoriler</th>
+        </tr>
+
+
+        @foreach (var item in Model)
+        {
+
+
+            <tr class="text-center">  <td><img src="@item.ImageUrlMainCategory" style="height:50px;" /></td> <td><a href="/SubCategory/Index/@item.MainCategoryID">@item.NameMainCategory</a></td> </tr>
+        }
+
+    </table>
+</div>
+
+
+

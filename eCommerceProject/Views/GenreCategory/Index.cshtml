@@ -1,0 +1,21 @@
+﻿@model IEnumerable<EntityLayer.Concrete.GenreCategory>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr><th>Kategoriler</th></tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td> <a href="/Product/ProductAdd/@item.GenreCategoryID">@item.NameGenreCategory </a></td>
+        </tr>
+    }
+</table>
+
+
+@*Bu sayfadan gidiyorduk ProductAdd sayfasına artık burdan değil SubCategory'nin Index'inden gidiyoruz, yani bu sayfa şu an kullanılmıyor*@
+@*@await Component.InvokeAsync("GenreCategoryList", new {id=ViewBag.i})*@
+
+

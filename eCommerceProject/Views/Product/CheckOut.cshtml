@@ -1,0 +1,114 @@
+﻿@model IEnumerable< EntityLayer.Concrete.Product>
+
+@{
+    ViewData["Title"] = "CheckOut";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="page-head_agile_info_w3l inner-contact-page">
+    <div class="container py-5">
+        <h3 class="title-style text-white pt-5">Sipariş Onay Sayfası</h3>
+        <ul class="w3_short pt-3 pb-5">
+            <li>
+                <a href="/Product/BuyProduct/" class="text-white">Ödeme Yap</a>
+                <i class="fa fa-angle-right mx-2 text-white" aria-hidden="true"></i>
+            </li>
+            <li class="text-light">Sipariş Onayı</li>
+        </ul>
+    </div>
+</div>
+
+@foreach (var item1 in Model)
+{
+
+    <div class="banner-bootom-w3-agileits py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row">
+                <div class="col-lg-5 col-md-8 single-right-left ">
+                    <div class="grid images_3_of_2">
+                        <div class="flexslider">
+                            <ul class="slides">
+                                <li data-thumb="@item1.ImageUrl1Product">
+                                    <div class="thumb-image">
+                                        <img src="@item1.ImageUrl1Product" data-imagezoom="true" class="img-fluid" alt="">
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7 single-right-left simpleCart_shelfItem">
+                    <h3 class="mb-3">@item1.NameProduct</h3>
+                    <p class="mb-3">
+                        <span class="item_price">@item1.PriceProduct ₺</span>
+                    </p>
+                    <div class="single-infoagile">
+                        <ul>
+                            <li class="mb-3">
+                                Ürün Bedeni: @item1.SizeProduct
+                            </li>
+                            <li class="mb-3">
+                                Satıcı: @ViewBag.ad
+                            </li>
+                            <li class="mb-3">
+                                İban Adresi: @ViewBag.IBAN
+                            </li>
+                            <li class="mb-3">
+                                Ürünün Eklenme Tarihi: @(((DateTime)item1.DateProduct).ToString("dd-MMM-yyyy"))
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product-single-w3l">
+                        <p class="my-3">
+                            <i class="far fa-hand-point-right mr-2"></i>
+                            Ürünü Satın Almak İçin :
+                            <ul>
+                                <li class="mb-1">
+                                    Kullanıcı ile ürünün durumu hakkında iletişime geçiniz.
+                                </li>
+                                <li class="mb-1">
+                                    Ürün onayı sayfasında son kontrolleri yapınız.
+                                </li>
+                                <li class="mb-1">
+                                    Satıcının İBAN'ına parayı atınız.
+                                </li>
+                                <li class="mb-1">
+                                    Kargo ve teslimat gerçekleştikten sonra ucuza alışveriş yapmanın tadını çıkarın.
+                                </li>
+                                <li class="mb-1">
+                                    Bizi tercih ettiğiniz için teşekkür ederiz.
+                                </li>
+                            </ul>
+                        <p class="my-sm-4 my-3">
+                            <i class="far fa-hand-point-right mr-2"></i> Her şey tamam mı?
+                        </p>
+                    </div>
+
+                    <div class="occasion-cart">
+                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                            <a href="/Product/LastBuy/@item1.ProductID" class="btn btn-primary" onclick="myFunction()">Ödemeyi Tamamla!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@*<div class="occasion-cart">
+    <a href="" class="btn btn-primary">Siparişi Onayla</a>
+</div>*@
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+    function myFunction() {
+        swal("Tebrikler!", "Alışverişiniz Tamamlandı!", "success", {
+        buttons: false,
+        timer: 3000,
+    });
+    }
+    
+</script>

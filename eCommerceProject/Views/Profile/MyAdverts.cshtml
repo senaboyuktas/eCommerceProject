@@ -1,0 +1,143 @@
+﻿@using EntityLayer.Concrete
+@model List<Product>
+
+@{
+    ViewData["Title"] = "MyAdverts";
+    Layout = "~/Views/Shared/_LayoutAuthenticated.cshtml";
+}
+
+<div class="ads-grid py-sm-5 py-4">
+    <div class="container py-xl-4 py-lg-2">
+        <!-- tittle heading -->
+        @*  <div class="flip-card">
+        <div class="flip-card-inner">
+        <div class="flip-card-front">
+        <img src="@ViewBag.img" alt="Avatar" style="width:300px;height:300px;">
+        </div>
+        <div class="flip-card-back">
+        <h1>@ViewBag.ad</h1>
+        <p>@ViewBag.desc</p>
+        <p>@ViewBag.mail</p>
+        </div>
+        </div>
+        </div>*@
+
+        <div class="main main-raised">
+            <div class="profile-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="avatar">
+                                <img src="@ViewBag.img" alt="@ViewBag.ad" class="rounded-circle avatar-img" />
+                            </div>
+                        </div>
+                        <div class="col-md-6  description text-center">
+                            <div class="name">
+                                <h3 class="title">@ViewBag.ad</h3>
+                                <h6>Satıcı</h6>
+                            </div>
+                            <p>@ViewBag.desc </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <!-- //tittle heading -->
+        <div class="row">
+            <!-- product right -->
+            <div class="col-lg-3 mt-lg-0 mt-4 p-lg-0 order-lg-first order-last">
+                <div class="side-bar p-sm-4 p-3">
+                    <!-- reviews -->
+                    <div class="customer-rev left-side py-2">
+                        <h3 class="agileits-sear-head mb-3"><a href="/Profile/MyAdverts">İLANLARIM</a></h3>
+                    </div>
+
+                    <div class="left-side py-2">
+                        <h3 class="agileits-sear-head mb-3"><a href="/MainCategory/Index">ÜRÜN EKLE</a></h3>
+                    </div>
+
+                    <div class="customer-rev left-side py-2">
+                        <h3 class="agileits-sear-head mb-3"><a href="/Profile/MyProductsToBeApproved">ONAY BEKLEYEN ÜRÜNLERİM</a></h3>
+                    </div>
+
+                    <div class="range py-2">
+                        <h3 class="agileits-sear-head mb-3"><a href="/Profile/MyGet">ALDIKLARIM</a></h3>
+                    </div>
+
+                    <div class="left-side py-2">
+                        <h3 class="agileits-sear-head mb-3"><a href="/Profile/MySell">SATTIKLARIM</a></h3>
+                    </div>
+
+                    @*<div class="left-side py-2">
+                    <h3 class="agileits-sear-head mb-3"><a href="#">BİLDİRİMLER</a></h3>
+                    </div>*@
+
+                    <div class="left-side py-2">
+                        <h3 class="agileits-sear-head mb-3"><a href="/Profile/MyProfile">PROFİLİ DÜZENLE</a></h3>
+                    </div>
+
+
+
+                    <div class="left-side py-2">
+                        <h3 class="agileits-sear-head mb-3"><a href="/LoginUser/LogOut/">ÇIKIŞ YAP!</a></h3>
+                    </div>
+                </div>
+            </div>
+            <!-- product right -->
+            <div class="agileinfo-ads-display col-lg-9 order-lg-last order-first">
+                <div class="wrapper">
+                    <!-- first section -->
+                    <div class="product-sec1 px-lg-4 mb-3">
+
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+                                @if (item.SellTraderID == ViewBag.id && item.StatusProduct == true)
+                                {
+                                    <div class="col-md-4 product-men mb-3">
+                                        <div class="men-pro-item simpleCart_shelfItem">
+                                            <div class="men-thumb-item text-center">
+                                                <img src="@item.ImageUrl1Product" alt="" class="img-fluid" style="height: 268.99px">
+                                                <div class="men-cart-pro">
+                                                    <div class="inner-men-cart-pro">
+                                                        <a href="/Product/EditProduct/@item.ProductID" class="link-product-add-cart">
+                                                            Düzenle
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item-info-product text-center mt-2">
+                                                <h4 class="pt-1">
+                                                    <a href="single.html">@item.NameProduct</a>
+                                                </h4>
+                                                <div class="info-product-price">
+                                                    <span class="item_price">@item.PriceProduct ₺</span>
+                                                </div>
+                                                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                                                    <form action="/Product/DetailsProduct/@item.ProductID" method="post">
+
+                                                        <button type="submit" name="submit" value="Detaya Git"
+                                                        class="btn btn-style btn-style-secondary mt-3">
+                                                            Detaya Git
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

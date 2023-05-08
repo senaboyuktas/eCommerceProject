@@ -1,0 +1,51 @@
+﻿@using EntityLayer.Concrete
+@model List<Product>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<!-- Card header -->
+<div class="card-header border-0">
+    <h3 class="mb-0">Ürün Onay Paneli</h3>
+</div>
+<!-- Dark table -->
+
+<div class="table-responsive">
+
+    <table class="table align-items-center table-flush">
+
+        <thead class="thead-dark">
+            <tr>
+
+                <th scope="col" class="sort" data-sort="ProductID">#</th>
+                <th scope="col" class="sort" data-sort="NameProdcut">Ürün Başlığı : </th>
+                <th scope="col" class="sort" data-sort="BrandProduct">Ürünün Markası :</th>
+                <th scope="col" class="sort" data-sort="DescriptionProduct">Ürün Açıklaması :</th>
+
+                <th scope="col" class="sort" data-sort="completion">Onayla</th>
+                <th scope="col">Reddet</th>
+
+            </tr>
+        </thead>
+
+        <tbody class="list">
+            @foreach (var item in Model)
+            {
+                if (item.BuyTraderID == null && item.StatusProduct == false)
+                {
+                    <tr>
+                        <th>@item.ProductID</th>
+                        <td class="budget">@item.NameProduct</td>
+                        <td class="budget">@item.BrandProduct</td>
+                        <td class="budget">@item.DescriptionProduct</td>
+
+                        <td> <a href="/Admin/Product/ConfirmProduct/@item.ProductID" class="btn btn-success">Onaylama Sayfasına git</a></td>
+                        <td> <a href="/Admin/Product/DeleteProduct/@item.ProductID" class="btn btn-danger">Sil</a></td>
+
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

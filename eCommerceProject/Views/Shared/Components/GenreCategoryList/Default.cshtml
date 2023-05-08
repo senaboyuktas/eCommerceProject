@@ -1,0 +1,13 @@
+﻿@model IEnumerable<EntityLayer.Concrete.GenreCategory>
+
+@foreach (var item in Model)
+{
+    <p>@item.GenreCategoryID</p>
+    <p>@item.NameGenreCategory</p>
+   
+}
+@foreach (var item1 in Model)
+{
+     <p>@item1.SubCategory.SubCategoryID</p>
+
+}

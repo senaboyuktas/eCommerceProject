@@ -1,0 +1,116 @@
+﻿@model EntityLayer.Concrete.Product
+
+@{
+    ViewData["Title"] = "ConfirmProduct";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <h3 class="mb-0">Ürün Onaylama Paneli</h3>
+</div>
+
+<form class="form-group " style="margin-left: 1rem; margin-right: 1rem;" method="post">
+    @using (Html.BeginForm("ConfirmProduct", "Product", FormMethod.Post))
+    {
+        <div style="margin-left:1rem; margin-right:1rem;">
+            @Html.HiddenFor(x=>x.ProductID)
+            @Html.HiddenFor(x=>x.SellTraderID)
+            @Html.HiddenFor(x=>x.BuyTraderID)
+            @Html.HiddenFor(x=>x.NameProduct)
+            @Html.HiddenFor(x=>x.DescriptionProduct)
+            @Html.HiddenFor(x=>x.DescriptionProduct)
+            @Html.HiddenFor(x=>x.BrandProduct)
+            @Html.HiddenFor(x=>x.PriceProduct)
+            @Html.HiddenFor(x=>x.DateProduct)
+            @Html.HiddenFor(x=>x.SizeProduct)
+            @Html.HiddenFor(x=>x.ImageUrl1Product)
+            @Html.HiddenFor(x=>x.ImageUrl2Product)
+            @Html.HiddenFor(x=>x.ImageUrl3Product)
+            @Html.HiddenFor(x=>x.ImageUrl4Product)
+            @Html.HiddenFor(x=>x.ImageUrl5Product)
+            @Html.HiddenFor(x=>x.ImageUrl6Product)
+            @Html.HiddenFor(x=>x.GenreCategoryID)
+
+            <br />
+
+            @Html.Label("Ürün İsmi :")
+            <br />
+            @Html.TextBoxFor(x=> x.NameProduct, new {@class="form-control",disabled="disabled"})
+
+            <br />
+
+
+            @Html.Label("Ürün Açıklaması :")
+            <br />
+            @Html.TextBoxFor(x=> x.DescriptionProduct, new {@class="form-control",disabled="disabled"})
+            <br />
+
+            @Html.Label("Ürün Markası :")
+            <br />
+            @Html.TextBoxFor(x=> x.BrandProduct, new {@class="form-control",disabled="disabled"})
+            <br />
+
+            @Html.Label("Ürün Bedeni :")
+            <br />
+            @Html.TextBoxFor(x=> x.SizeProduct, new {@class="form-control",disabled="disabled"})
+            <br />
+            @Html.Label("Ürün Fiyatı :")
+            <br />
+
+
+            @Html.TextBoxFor(x=> x.PriceProduct, new {@class="form-control",disabled="disabled"})
+            <br />
+            @Html.Label("Ürün Düzenleme Tarihi :")
+            <br />
+
+
+            @Html.TextBoxFor(x=> x.DateProduct, new {@class="form-control",disabled="disabled"})
+            <br />
+
+
+            @Html.Label("Ürün Resmi 1 :")
+            <br />
+            <img style="height:15rem" src="@Html.DisplayFor(x=> x.ImageUrl1Product, new {@class="form-control",disabled="disabled"})">
+
+            <br />
+
+            @Html.Label("Ürün Resmi 2 :")
+            <br />
+            <img style="height:15rem" src="@Html.DisplayFor(x=> x.ImageUrl2Product, new {@class="form-control",disabled="disabled"})">
+
+            <br />
+
+            @Html.Label("Ürün Resmi 3 :")
+            <br />
+            <img style="height:15rem" src="@Html.DisplayFor(x=> x.ImageUrl3Product, new {@class="form-control",disabled="disabled"})">
+
+            <br />
+
+            @Html.Label("Ürün Resmi 4 :")
+            <br />
+            <img style="height:15rem" src="@Html.DisplayFor(x=> x.ImageUrl4Product, new {@class="form-control",disabled="disabled"})">
+
+            <br />
+
+            @Html.Label("Ürün Resmi 5 :")
+            <br />
+            <img style="height:15rem" src="@Html.DisplayFor(x=> x.ImageUrl5Product, new {@class="form-control",disabled="disabled"})">
+
+            <br />
+
+            @Html.Label("Ürün Resmi 6 :")
+            <br />
+            <img style="height:15rem" src="@Html.DisplayFor(x=> x.ImageUrl6Product, new {@class="form-control",disabled="disabled"})">
+
+            <br />
+
+            @Html.Label("Ürün Durumu :")
+            @Html.CheckBoxFor(x=> x.StatusProduct, new {@class="form-control"})
+            @Html.ValidationMessageFor(x=>x.StatusProduct,"",new{@class="text-danger", @style="font-size:12px;"})
+            <br />
+
+            <button type="submit" class="btn btn-success">Güncelle</button>
+        </div>
+        <br />
+    }
+</form>
